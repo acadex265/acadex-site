@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acadex التعليمية</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; background: #f9f9f9; margin: 0; padding: 0; }
+        header { background-color: #005f73; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #0a9396; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        main { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+        h1 { color: #001219; }
+        section { background: white; margin-bottom: 20px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        footer { background-color: #005f73; color: white; text-align: center; padding: 10px; }
+        .university {
+            border: 1px solid #94d2bd;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #e0fbfc;
+        }
+        .university h3 {
+            margin: 0 0 6px 0;
+            color: #0a9396;
+        }
+        .university p {
+            margin: 4px 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acadex التعليمية</h1>
+        <p>بوابتك للتعليم والجامعات في تركيا</p>
+    </header>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#universities">الجامعات التركية</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>مرحبا بكم في Acadex التعليمية</h2>
+            <p>نسعى لتقديم معلومات موثوقة وشاملة عن الجامعات في تركيا، لتسهيل اختيار الجامعة المناسبة لاحتياجاتك الأكاديمية والمهنية.</p>
+        </section>
+
+        <section id="universities">
+            <h2>الجامعات التركية</h2>
+
+            <div class="university">
+                <h3>جامعة اسطنبول التقنية (Istanbul Technical University)</h3>
+                <p>تأسست في عام 1773، وهي من أقدم الجامعات التقنية في تركيا والعالم. تشتهر في مجالات الهندسة والعلوم التطبيقية.</p>
+                <p><strong>الموقع:</strong> اسطنبول</p>
+            </div>
+
+            <div class="university">
+                <h3>جامعة بوغازيجي (Boğaziçi University)</h3>
+                <p>جامعة بحثية رائدة تقع في اسطنبول، وتقدم برامج متميزة في العلوم الاجتماعية والهندسة والفنون.</p>
+                <p><strong>الموقع:</strong> اسطنبول</p>
+            </div>
+
+            <div class="university">
+                <h3>جامعة أنقرة (Ankara University)</h3>
+                <p>تأسست عام 1946، تعتبر من الجامعات الحكومية الكبرى في تركيا وتضم العديد من الكليات والبرامج المتنوعة.</p>
+                <p><strong>الموقع:</strong> أنقرة</p>
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <h2>اتصل بنا</h2>
+            <p>للمزيد من المعلومات والاستفسارات، يمكنك مراسلتنا على البريد الإلكتروني: <a href="mailto:info@acadex.com">info@acadex.com</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Acadex التعليمية. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>
