@@ -1,13 +1,144 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>الجامعات التركية | أكاديكس</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>أكاديكس | الجامعات</title>
+    <link rel="icon" href="logo.png" />
+    <style>
+        :root {
+            --beige: #f9f4ee;
+            --brown: #6b4e2e;
+            --gold: #d4af37;
+            --turquoise: #30cfcf;
+            --dark-brown: #3a2c2c;
+            --light-brown: #8b5e3c;
+            --white: #fff;
+        }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--beige);
+            color: var(--dark-brown);
+            direction: rtl;
+            scroll-behavior: smooth;
+        }
+        a {
+            color: var(--dark-brown);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--gold);
+        }
+        header {
+            background-color: var(--brown);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            height: 50px;
+        }
+        nav a {
+            margin: 0 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        main {
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 0 1rem;
+        }
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--brown);
+        }
+        .uni-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .uni-item {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(107, 78, 46, 0.15);
+            width: 280px;
+            text-align: center;
+            padding: 1.5rem 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .uni-item:hover {
+            transform: translateY(-5px);
+        }
+        .uni-item img {
+            max-width: 140px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        .uni-item h3 {
+            margin: 0.5rem 0;
+            color: var(--dark-brown);
+        }
+        .uni-item p {
+            color: var(--light-brown);
+            margin-bottom: 1rem;
+        }
+        .uni-item button {
+            background-color: var(--brown);
+            color: var(--white);
+            border: none;
+            border-radius: 20px;
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .uni-item button:hover {
+            background-color: var(--gold);
+            color: var(--brown);
+        }
+        footer {
+            background-color: var(--brown);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer .logo-footer {
+            height: 40px;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .uni-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .uni-item {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Acadex Logo" class="logo">
+        <img src="logo.png" alt="أكاديكس" class="logo" />
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="universities.html">الجامعات</a>
@@ -17,31 +148,48 @@
         </nav>
     </header>
     <main>
-        <h2>جامعاتنا المعترف بها</h2>
-        <ul class="uni-list">
-            <li>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Istanbul_Aydin_University_Logo.png" alt="جامعة إسطنبول أيدن">
+        <h2>الجامعات المعترف بها</h2>
+        <div class="uni-list">
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Istanbul_Aydin_University_Logo.png" alt="جامعة إسطنبول أيدن" />
                 <h3>جامعة إسطنبول أيدن</h3>
                 <p>إسطنبول</p>
-                <button>تقديم</button>
-            </li>
-            <li>
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Koç_University_logo.svg/1200px-Koç_University_logo.svg.png" alt="جامعة كوتش">
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Koç_University_logo.svg/1200px-Koç_University_logo.svg.png" alt="جامعة كوتش" />
                 <h3>جامعة كوتش</h3>
                 <p>إسطنبول</p>
-                <button>تقديم</button>
-            </li>
-            <li>
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Bo%C4%9Fazi%C3%A7i_University_logo.svg/1200px-Bo%C4%9Fazi%C3%A7i_University_logo.svg.png" alt="جامعة بوغازيتشي">
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Bo%C4%9Fazi%C3%A7i_University_logo.svg/1200px-Bo%C4%9Fazi%C3%A7i_University_logo.svg.png" alt="جامعة بوغازيتشي" />
                 <h3>جامعة بوغازيتشي</h3>
                 <p>إسطنبول</p>
-                <button>تقديم</button>
-            </li>
-            <!-- يمكن إضافة المزيد من الجامعات هنا -->
-        </ul>
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/METU_Logo.svg/1200px-METU_Logo.svg.png" alt="جامعة الشرق الأوسط التقنية" />
+                <h3>جامعة الشرق الأوسط التقنية</h3>
+                <p>أنقرة</p>
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Hacettepe_University_logo.svg/1200px-Hacettepe_University_logo.svg.png" alt="جامعة حاجت تبه" />
+                <h3>جامعة حاجت تبه</h3>
+                <p>أنقرة</p>
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+            <div class="uni-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Istanbul_Technical_University_logo.svg/1200px-Istanbul_Technical_University_logo.svg.png" alt="جامعة إسطنبول التقنية" />
+                <h3>جامعة إسطنبول التقنية</h3>
+                <p>إسطنبول</p>
+                <button onclick="location.href='contact.html'">تقديم</button>
+            </div>
+        </div>
     </main>
     <footer>
-        <img src="logo.png" alt="Acadex Logo" class="logo-footer"><br>
+        <img src="logo.png" alt="أكاديكس" class="logo-footer" />
         <p>© 2025 أكاديكس</p>
     </footer>
 </body>

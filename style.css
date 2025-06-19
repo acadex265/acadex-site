@@ -1,85 +1,97 @@
+:root {
+  --blue-dark: #1a3e6f;       /* أزرق غامق */
+  --blue-light: #4a90e2;      /* أزرق فاتح */
+  --beige: #f5f1e9;           /* بيج فاتح */
+  --gold: #d9a441;            /* ذهبي */
+  --text-color: #1a3e6f;      /* لون نص أزرق غامق */
+  --background-color: var(--beige);
+}
+
+/* قواعد عامة */
 body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    background-color: #f9f4ee;
-    color: #3a2c2c;
-    margin: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
-header, footer {
-    background-color: #6b4e2e;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
+
+/* الترويسة */
+header {
+  background-color: var(--blue-dark);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+/* اللوغو */
+.logo img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* روابط التنقل */
 nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
 }
 nav a:hover {
-    color: #d4af37; /* ذهبي */
+  color: var(--gold);
 }
-.hero {
-    background: #e7d8c9;
-    text-align: center;
-    padding: 4rem 0;
+
+/* بطاقات الجامعات */
+.university-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(26, 62, 111, 0.2);
+  padding: 15px;
+  margin: 15px;
+  max-width: 250px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
-.stats div {
-    display: inline-block;
-    margin: 0 1rem;
-    color: #8b5e3c;
-    font-size: 1.5rem;
+
+.uni-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
 }
-.uni-list {
-    list-style: none;
-    padding: 0;
-    margin: 1rem auto;
-    max-width: 1000px;
+
+/* الأزرار */
+button, .btn {
+  background-color: var(--gold);
+  border: none;
+  padding: 10px 20px;
+  color: var(--blue-dark);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
-.uni-list li {
-    display: inline-block;
-    width: 30%;
-    margin: 1%;
-    background: #ffffff;
-    border: 1px solid #d6c1a5;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    vertical-align: top;
+
+button:hover, .btn:hover {
+  background-color: var(--blue-light);
+  color: white;
 }
-.uni-list li img {
-    max-width: 80%;
-    height: 100px;
-    object-fit: contain;
-    margin-bottom: 1rem;
+
+/* روابط عامة */
+a {
+  color: var(--blue-dark);
+  text-decoration: none;
 }
-button {
-    background: #8b5e3c;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+a:hover {
+  color: var(--gold);
 }
-button:hover {
-    background: #d4af37;
-    color: #3a2c2c;
-}
-.logo, .logo-footer {
-    width: 150px;
-    margin: 0.5rem auto;
-    display: block;
-}
-form input, form textarea {
-    width: 90%;
-    padding: 0.5rem;
-    margin: 0.3rem 0;
-    border: 1px solid #d6c1a5;
-    border-radius: 5px;
-}
-form button {
-    width: 95%;
-    font-size: 1.1rem;
+
+/* التذييل */
+footer {
+  background-color: var(--blue-dark);
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  margin-top: 40px;
 }
