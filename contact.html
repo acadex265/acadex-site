@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>تواصل معنا</h1>
+        <img src="logo.png" alt="Acadex Logo" class="logo">
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="universities.html">الجامعات</a>
@@ -17,15 +17,22 @@
         </nav>
     </header>
     <main>
+        <h2>تواصل معنا</h2>
         <form>
-            <label>الاسم:</label><input type="text"><br>
-            <label>البريد الإلكتروني:</label><input type="email"><br>
-            <label>الدولة:</label><input type="text"><br>
-            <label>رسالتك:</label><textarea></textarea><br>
+            <label for="name">الاسم:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">البريد الإلكتروني:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">رسالتك:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
             <button type="submit">إرسال</button>
         </form>
     </main>
     <footer>
+        <img src="logo.png" alt="Acadex Logo" class="logo-footer"><br>
         <p>© 2025 أكاديكس</p>
     </footer>
 </body>
