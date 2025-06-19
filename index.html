@@ -1,280 +1,157 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>أكاديكس | الصفحة الرئيسية</title>
-    <link rel="icon" href="logo.png" />
-    <style>
-        /* ألوان البيج، البني، الذهبي، الفيروزي */
-        :root {
-            --beige: #f9f4ee;
-            --brown: #6b4e2e;
-            --gold: #d4af37;
-            --turquoise: #30cfcf;
-            --dark-brown: #3a2c2c;
-            --light-brown: #8b5e3c;
-            --white: #fff;
-        }
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--beige);
-            color: var(--dark-brown);
-            direction: rtl;
-            scroll-behavior: smooth;
-        }
-        a {
-            color: var(--dark-brown);
-            text-decoration: none;
-        }
-        a:hover {
-            color: var(--gold);
-        }
-        header {
-            background-color: var(--brown);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        header .logo {
-            height: 50px;
-        }
-        nav a {
-            margin: 0 1rem;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: var(--gold);
-        }
-        .hero {
-            background-image: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80");
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 6rem 2rem 8rem;
-            text-align: center;
-            position: relative;
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(107, 78, 46, 0.75);
-            z-index: 0;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-        .hero .btn {
-            background-color: var(--gold);
-            color: var(--brown);
-            font-weight: 700;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-        .hero .btn:hover {
-            background-color: var(--turquoise);
-            color: var(--white);
-        }
-        section.stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            padding: 3rem 1rem;
-            background-color: var(--beige);
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--light-brown);
-        }
-        section.stats div {
-            text-align: center;
-        }
-        section.stats strong {
-            display: block;
-            font-size: 2.5rem;
-            color: var(--brown);
-            margin-bottom: 0.3rem;
-        }
-        section.universities {
-            max-width: 1200px;
-            margin: 4rem auto 2rem;
-            padding: 0 1rem;
-        }
-        section.universities h2 {
-            text-align: center;
-            font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--brown);
-        }
-        .uni-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .uni-item {
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(107, 78, 46, 0.15);
-            width: 280px;
-            text-align: center;
-            padding: 1.5rem 1rem 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-        .uni-item:hover {
-            transform: translateY(-5px);
-        }
-        .uni-item img {
-            max-width: 140px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-        .uni-item h3 {
-            margin: 0.5rem 0;
-            color: var(--dark-brown);
-        }
-        .uni-item p {
-            color: var(--light-brown);
-            margin-bottom: 1rem;
-        }
-        .uni-item button {
-            background-color: var(--brown);
-            color: var(--white);
-            border: none;
-            border-radius: 20px;
-            padding: 0.6rem 1.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .uni-item button:hover {
-            background-color: var(--gold);
-            color: var(--brown);
-        }
-        footer {
-            background-color: var(--brown);
-            color: var(--white);
-            padding: 1.5rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        footer .logo-footer {
-            height: 40px;
-            margin-bottom: 0.5rem;
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            section.stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .uni-list {
-                flex-direction: column;
-                align-items: center;
-            }
-            .uni-item {
-                width: 90%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>أكاديكس - الصفحة الرئيسية</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #fff;
+      color: #003366;
+      direction: rtl;
+      text-align: right;
+    }
+    header {
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: white;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 2rem;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.apply {
+      color: #D4AF37;
+    }
+    #lang-toggle {
+      background:none;
+      border:1px solid #D4AF37;
+      color:#D4AF37;
+      border-radius:15px;
+      padding:0.3rem 0.8rem;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h2 {
+      color: #1e3c72;
+      text-align: center;
+    }
+    .universities {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .university-card {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+      width: 180px;
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.2s ease-in-out;
+    }
+    .university-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    .university-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.8rem;
+    }
+    .university-name {
+      font-weight: bold;
+      color: #1e3c72;
+      font-size: 1.1rem;
+    }
+    .apply-btn {
+      display: block;
+      width: 220px;
+      margin: 3rem auto 1rem;
+      background-color: #2a5298;
+      color: white;
+      border: none;
+      padding: 0.9rem 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .apply-btn:hover {
+      background-color: #1e3c72;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2a5298;
+      color: #fff;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="أكاديكس" class="logo" />
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="universities.html">الجامعات</a>
-            <a href="services.html">الخدمات</a>
-            <a href="about.html">من نحن</a>
-            <a href="contact.html">تواصل معنا</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>أكاديكس - دليلك الشامل للدراسة في تركيا</h1>
-            <p>نوفر لك أفضل الجامعات والخدمات التعليمية لمساعدتك على تحقيق حلمك.</p>
-            <button class="btn" onclick="location.href='universities.html'">ابدأ الآن</button>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div>
-            <strong>50+</strong>
-            جامعات شريكة
-        </div>
-        <div>
-            <strong>10</strong>
-            سنوات خبرة
-        </div>
-        <div>
-            <strong>2000+</strong>
-            طالب مسجل
-        </div>
-    </section>
-
-    <section class="universities">
-        <h2>بعض الجامعات المميزة</h2>
-        <div class="uni-list">
-            <div class="uni-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Istanbul_Aydin_University_Logo.png" alt="جامعة إسطنبول أيدن" />
-                <h3>جامعة إسطنبول أيدن</h3>
-                <p>إسطنبول</p>
-                <button onclick="location.href='universities.html'">تقديم</button>
-            </div>
-            <div class="uni-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Koç_University_logo.svg/1200px-Koç_University_logo.svg.png" alt="جامعة كوتش" />
-                <h3>جامعة كوتش</h3>
-                <p>إسطنبول</p>
-                <button onclick="location.href='universities.html'">تقديم</button>
-            </div>
-            <div class="uni-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Bo%C4%9Fazi%C3%A7i_University_logo.svg/1200px-Bo%C4%9Fazi%C3%A7i_University_logo.svg.png" alt="جامعة بوغازيتشي" />
-                <h3>جامعة بوغازيتشي</h3>
-                <p>إسطنبول</p>
-                <button onclick="location.href='universities.html'">تقديم</button>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <img src="logo.png" alt="أكاديكس" class="logo-footer" />
-        <p>© 2025 أكاديكس</p>
-    </footer>
+  <header>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <img src="images/acadex-logo.png" alt="أكاديكس Logo" />
+      <h1 style="margin:0; font-size:1.5rem; font-weight:bold;">أكاديكس</h1>
+    </div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+      <a href="blog.html">المدونة</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="form.html" class="apply">تقديم</a>
+    </nav>
+    <button id="lang-toggle" onclick="location.href='index-en.html'">EN</button>
+  </header>
+  <main>
+    <h2>الجامعات المتاحة</h2>
+    <div class="universities">
+      <div class="university-card">
+        <img src="https://www.studyinturkey.gov.tr/Content/files/Logolar/Istanbul_Logo.png" alt="جامعة اسطنبول" class="university-logo" />
+        <div class="university-name">جامعة اسطنبول</div>
+      </div>
+      <div class="university-card">
+        <img src="https://www.studyinturkey.gov.tr/Content/files/Logolar/Ankara_Logo.png" alt="جامعة أنقرة" class="university-logo" />
+        <div class="university-name">جامعة أنقرة</div>
+      </div>
+      <div class="university-card">
+        <img src="https://www.studyinturkey.gov.tr/Content/files/Logolar/Bogazici_Logo.png" alt="جامعة البوسفور" class="university-logo" />
+        <div class="university-name">جامعة البوسفور</div>
+      </div>
+      <div class="university-card">
+        <img src="https://www.studyinturkey.gov.tr/Content/files/Logolar/ODTU_Logo.png" alt="جامعة الشرق الأوسط التقنية" class="university-logo" />
+        <div class="university-name">جامعة الشرق الأوسط التقنية</div>
+      </div>
+      <div class="university-card">
+        <img src="https://www.studyinturkey.gov.tr/Content/files/Logolar/Hacettepe_Logo.png" alt="جامعة حاجيتبة" class="university-logo" />
+        <div class="university-name">جامعة حاجيتبة</div>
+      </div>
+    </div>
+    <a href="form.html" class="apply-btn">📩 تقديم الآن</a>
+  </main>
+  <footer>© 2025 أكاديكس - جميع الحقوق محفوظة</footer>
 </body>
 </html>
