@@ -1,36 +1,44 @@
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     direction: rtl;
-    background-color: #fdfdfb;
-    color: #2f2f2f;
+    background-color: #fdf6ee;
+    color: #3b2f2f;
     margin: 0;
     padding: 0;
 }
 header {
-    background-color: #6b705c;
+    background-color: #6b4e2e;
     color: white;
     padding: 1rem;
     text-align: center;
 }
 nav a {
-    margin: 0 15px;
-    color: #ffe66d;
+    margin: 0 10px;
+    color: #ffe6cc;
     text-decoration: none;
-    font-weight: bold;
 }
 main {
     padding: 2rem;
 }
-section img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    border-radius: 10px;
-}
 footer {
-    background-color: #ccc5b9;
+    background-color: #d6c1a5;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+}
+button {
+    background-color: #8b5e3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+input, textarea {
+    width: 100%;
+    margin: 5px 0 15px 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
