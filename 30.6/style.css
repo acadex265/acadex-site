@@ -1,0 +1,130 @@
+/* إعدادات عامة */
+body {
+  background-color: #F5F0E6;
+  color: #4B4B4B;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* العناوين */
+h1, h2, h3, h4 {
+  color: #FF7043;
+  margin-bottom: 15px;
+}
+
+/* الروابط */
+a {
+  color: #FF8A65;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF7043;
+  text-decoration: underline;
+}
+
+/* الأزرار */
+button, .btn {
+  background-color: #A67B5B;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #7B5E3C;
+}
+
+/* القوائم والتنقل */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #4B4B4B;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  color: #FF7043;
+}
+
+/* قسم الهيدر (البانر) */
+.header-hero {
+  background-image: url('images/meeting.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 80px 20px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+/* قسم الخدمات */
+.services-section {
+  background-color: #FFF6F0;
+  padding: 50px 20px;
+}
+
+/* قسم الجامعات */
+.universities-section {
+  background-image: url('images/ist.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* قسم التسجيل أو الاجتماع الثاني (كمثال) */
+.registration-section {
+  background-image: url('images/meeting2.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* قسم آخر كمثال */
+.additional-section {
+  background-image: url('images/acc.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* الفوتر */
+footer {
+  background-color: #D7CCC8;
+  color: #4B4B4B;
+  padding: 25px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* استجابات سريعة */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header-hero {
+    padding: 50px 10px;
+  }
+}
+
+
