@@ -1,96 +1,55 @@
+<!-- acadex/services.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>أكاديكس - خدماتنا</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #fff;
-    color: #003366;
-    direction: rtl;
-    text-align: right;
-  }
-  header {
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
-    color: white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:1rem 2rem;
-  }
-  header img {
-    height: 50px;
-  }
-  nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  nav a.apply {
-    color: #D4AF37;
-  }
-  #lang-toggle {
-    background:none;
-    border:1px solid #D4AF37;
-    color:#D4AF37;
-    border-radius:15px;
-    padding:0.3rem 0.8rem;
-    cursor:pointer;
-    font-weight:bold;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem;
-  }
-  h1 {
-    color: #1e3c72;
-    margin-bottom: 1rem;
-  }
-  ul {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #2a5298;
-    color: #fff;
-    margin-top: 4rem;
-    font-size: 0.9rem;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acadex | خدماتنا</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div style="display:flex; align-items:center; gap:1rem;">
-    <img src="images/acadex-logo.png" alt="أكاديكس Logo" />
-    <h1 style="margin:0; font-size:1.5rem; font-weight:bold;">أكاديكس</h1>
-  </div>
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="about.html">من نحن</a>
-    <a href="services.html">خدماتنا</a>
-    <a href="blog.html">المدونة</a>
-    <a href="contact.html">تواصل معنا</a>
-    <a href="form.html" class="apply">تقديم</a>
-  </nav>
-  <button id="lang-toggle" onclick="location.href='services-en.html'">EN</button>
-</header>
-<main>
-  <h1>خدماتنا</h1>
-  <ul>
-    <li>الإرشاد الأكاديمي واختيار التخصص المناسب.</li>
-    <li>تقديم الدعم في إجراءات التقديم للجامعات التركية.</li>
-    <li>المساعدة في الحصول على الفيزا والإقامة.</li>
-    <li>توفير معلومات عن الحياة الطلابية والبيئة الثقافية.</li>
-    <li>خدمات متابعة وتوجيه طوال فترة الدراسة.</li>
-  </ul>
-</main>
-<footer>© 2025 أكاديكس - جميع الحقوق محفوظة</footer>
+  <header>
+    <div class="logo">Acadex</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="majors.html">التخصصات</a></li>
+        <li><a href="universities.html">الجامعات</a></li>
+        <li><a href="services.html" class="active">خدماتنا</a></li>
+        <li><a href="register.html">التسجيل</a></li>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="services-header">
+      <h1>خدمات أكاديكس التعليمية</h1>
+      <p>نقدّم لك مجموعة متكاملة من الخدمات التي تسهّل عليك رحلة الدراسة في تركيا.</p>
+    </section>
+
+    <section class="services-list">
+      <ul>
+        <li>الاستشارة الأكاديمية المجانية</li>
+        <li>اختيار التخصص والجامعة الأنسب</li>
+        <li>تسجيل رسمي في الجامعات التركية</li>
+        <li>متابعة القبول والإجراءات الجامعية</li>
+        <li>خدمة الترجمة المحلفة للوثائق</li>
+        <li>توفير التأمين الصحي للطلاب</li>
+        <li>خدمات معادلة الشهادات</li>
+        <li>فتح حساب بنكي</li>
+        <li>توفير بطاقة المواصلات المحلية</li>
+        <li>السكن والإقامة الطلابية</li>
+        <li>بطاقة اتصال SIM محلية</li>
+        <li>الاستقبال من المطار</li>
+        <li>تسجيل المدارس الدولية</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 أكاديكس | جميع الحقوق محفوظة</p>
+  </footer>
 </body>
 </html>

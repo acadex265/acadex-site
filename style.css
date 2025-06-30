@@ -1,97 +1,130 @@
-:root {
-  --blue-dark: #1a3e6f;       /* أزرق غامق */
-  --blue-light: #4a90e2;      /* أزرق فاتح */
-  --beige: #f5f1e9;           /* بيج فاتح */
-  --gold: #d9a441;            /* ذهبي */
-  --text-color: #1a3e6f;      /* لون نص أزرق غامق */
-  --background-color: var(--beige);
-}
-
-/* قواعد عامة */
+/* إعدادات عامة */
 body {
-  margin: 0;
+  background-color: #F5F0E6;
+  color: #4B4B4B;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-/* الترويسة */
-header {
-  background-color: var(--blue-dark);
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* العناوين */
+h1, h2, h3, h4 {
+  color: #FF7043;
+  margin-bottom: 15px;
 }
 
-/* اللوغو */
-.logo img {
-  height: 60px;
-  object-fit: contain;
-}
-
-/* روابط التنقل */
-nav a {
-  color: white;
-  margin-left: 20px;
+/* الروابط */
+a {
+  color: #FF8A65;
   text-decoration: none;
-  font-weight: 600;
-}
-nav a:hover {
-  color: var(--gold);
 }
 
-/* بطاقات الجامعات */
-.university-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(26, 62, 111, 0.2);
-  padding: 15px;
-  margin: 15px;
-  max-width: 250px;
-  text-align: center;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.uni-logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 10px;
+a:hover {
+  color: #FF7043;
+  text-decoration: underline;
 }
 
 /* الأزرار */
 button, .btn {
-  background-color: var(--gold);
+  background-color: #A67B5B;
+  color: #FFFFFF;
   border: none;
-  padding: 10px 20px;
-  color: var(--blue-dark);
+  padding: 12px 25px;
   cursor: pointer;
+  font-size: 1rem;
   border-radius: 5px;
-  font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
 button:hover, .btn:hover {
-  background-color: var(--blue-light);
-  color: white;
+  background-color: #7B5E3C;
 }
 
-/* روابط عامة */
-a {
-  color: var(--blue-dark);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--gold);
+/* القوائم والتنقل */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
 }
 
-/* التذييل */
-footer {
-  background-color: var(--blue-dark);
-  color: white;
-  padding: 15px 30px;
+nav ul li a {
+  color: #4B4B4B;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  color: #FF7043;
+}
+
+/* قسم الهيدر (البانر) */
+.header-hero {
+  background-image: url('images/meeting.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
   text-align: center;
+  padding: 80px 20px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+/* قسم الخدمات */
+.services-section {
+  background-color: #FFF6F0;
+  padding: 50px 20px;
+}
+
+/* قسم الجامعات */
+.universities-section {
+  background-image: url('images/ist.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* قسم التسجيل أو الاجتماع الثاني (كمثال) */
+.registration-section {
+  background-image: url('images/meeting2.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* قسم آخر كمثال */
+.additional-section {
+  background-image: url('images/acc.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* الفوتر */
+footer {
+  background-color: #D7CCC8;
+  color: #4B4B4B;
+  padding: 25px 20px;
+  text-align: center;
+  font-size: 0.9rem;
   margin-top: 40px;
 }
+
+/* استجابات سريعة */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header-hero {
+    padding: 50px 10px;
+  }
+}
+
+
