@@ -3,357 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acadex - خدمات طلابية وتسجيل جامعي في تركيا</title>
+    <title>Acadex - Turkish Student Services | خدمات طلابية تركية</title>
+    <meta name="description" content="Acadex - خدمات طلابية شاملة للدراسة في تركيا. التسجيل الجامعي، الحصول على القبول، الخدمات الطلابية المتكاملة.">
+    <meta name="keywords" content="الدراسة في تركيا، الجامعات التركية، خدمات طلابية، التسجيل الجامعي، Acadex">
+    
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             font-family: 'Cairo', sans-serif;
         }
         
-        body {
-            background: linear-gradient(135deg, #f5f1eb 0%, #fff 50%, #f5f1eb 100%);
-            min-height: 100vh;
+        :root {
+            --primary-orange: #ff6b35;
+            --light-beige: #f5f1eb;
+            --dark-beige: #e8ddd4;
+            --text-dark: #2c2c2c;
         }
         
-        .hero-section {
-            background: linear-gradient(rgba(255, 140, 0, 0.1), rgba(245, 241, 235, 0.9)), url('https://aysps.gsu.edu/files/2021/01/iStock-1269848318.jpg');
+        .bg-primary { background-color: var(--primary-orange); }
+        .bg-light-beige { background-color: var(--light-beige); }
+        .bg-dark-beige { background-color: var(--dark-beige); }
+        .text-primary { color: var(--primary-orange); }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(255, 107, 53, 0.8), rgba(255, 107, 53, 0.6)), 
+                        url('https://aysps.gsu.edu/files/2021/01/iStock-1269848318.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 100vh;
         }
         
-        .accent-orange {
-            color: #ff8c00;
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .bg-accent-orange {
-            background-color: #ff8c00;
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
         }
         
-        .border-accent-orange {
-            border-color: #ff8c00;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), #ff8c65);
+            transition: all 0.3s ease;
         }
         
-        .bg-beige {
-            background-color: #f5f1eb;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
         
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .section-padding {
+            padding: 4rem 0;
         }
         
         .university-card {
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
-        .university-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
-        }
-        
-        .form-input {
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 12px 16px;
+        .university-card img {
             width: 100%;
-            transition: all 0.3s ease;
+            height: 200px;
+            object-fit: cover;
         }
         
-        .form-input:focus {
-            outline: none;
-            border-color: #ff8c00;
-            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
-            color: white;
-            padding: 12px 30px;
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
             border-radius: 25px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .language-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+        .language-btn.active {
+            background: var(--primary-orange);
+            color: white;
         }
         
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            text-align: center;
+        .hidden { display: none; }
+        
+        .contact-info {
+            background: var(--light-beige);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
         }
         
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 140, 0, 0.1);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
-            border-radius: 50%;
+        .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .stats-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ff8c00;
-        }
-        
-        .testimonial-card {
+            margin-bottom: 1rem;
+            padding: 1rem;
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 1rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        @media (max-width: 768px) {
-            .hero-section {
-                background-attachment: scroll;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .stats-number {
-                font-size: 2rem;
-            }
+        .contact-item:hover {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary-orange);
+        }
+        
+        .contact-item:hover i {
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+        
+        .form-submit {
+            background: var(--primary-orange);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            background: #ff5722;
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-4 py-3">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-graduation-cap text-3xl accent-orange"></i>
-                <h1 class="text-2xl font-bold text-gray-800">Acadex</h1>
+<body class="bg-gray-50">
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="language-btn active" onclick="switchLanguage('ar')" id="ar-btn">عربي</button>
+        <button class="language-btn" onclick="switchLanguage('en')" id="en-btn">English</button>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-graduation-cap text-primary text-3xl ml-3"></i>
+                    <h1 class="text-2xl font-bold text-gray-800">Acadex</h1>
+                </div>
+                <div class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition-colors" data-ar="خدماتنا" data-en="Services">خدماتنا</a>
+                    <a href="#universities" class="text-gray-700 hover:text-primary transition-colors" data-ar="الجامعات" data-en="Universities">الجامعات</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+                </div>
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="text-gray-700 hover:text-orange-500 transition-colors">الرئيسية</a>
-                <a href="#services" class="text-gray-700 hover:text-orange-500 transition-colors">خدماتنا</a>
-                <a href="#universities" class="text-gray-700 hover:text-orange-500 transition-colors">الجامعات</a>
-                <a href="#registration" class="text-gray-700 hover:text-orange-500 transition-colors">التسجيل</a>
-                <a href="#contact" class="text-gray-700 hover:text-orange-500 transition-colors">اتصل بنا</a>
-            </div>
-            <button class="btn-primary">
-                <i class="fas fa-phone ml-2"></i>
-                اتصل بنا
-            </button>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center">
-        <div class="container mx-auto px-4 text-center">
-            <div class="card max-w-4xl mx-auto p-8">
-                <h1 class="text-5xl font-bold text-gray-800 mb-4">
-                    مرحباً بك في <span class="accent-orange">Acadex</span>
-                </h1>
-                <p class="text-xl text-gray-600 mb-8">
-                    بوابتك الموثوقة للدراسة في أفضل الجامعات التركية
-                </p>
-                <p class="text-lg text-gray-500 mb-8">
-                    نحن فريق من المختصين في التعليم العالي، نقدم خدمات شاملة للطلاب العرب الراغبين في الدراسة في تركيا
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="btn-primary">
-                        <i class="fas fa-university ml-2"></i>
-                        تصفح الجامعات
-                    </button>
-                    <button class="btn-primary">
-                        <i class="fas fa-file-alt ml-2"></i>
-                        قدم طلبك الآن
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="py-16 bg-beige">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="card p-6">
-                    <div class="stats-number">500+</div>
-                    <p class="text-gray-600 font-semibold">طالب سعيد</p>
-                </div>
-                <div class="card p-6">
-                    <div class="stats-number">50+</div>
-                    <p class="text-gray-600 font-semibold">جامعة شريكة</p>
-                </div>
-                <div class="card p-6">
-                    <div class="stats-number">10+</div>
-                    <p class="text-gray-600 font-semibold">سنوات خبرة</p>
-                </div>
-                <div class="card p-6">
-                    <div class="stats-number">98%</div>
-                    <p class="text-gray-600 font-semibold">معدل النجاح</p>
-                </div>
-            </div>
+    <section id="home" class="hero-bg min-h-screen flex items-center">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h2 class="text-5xl font-bold mb-6" data-ar="مرحباً بكم في Acadex" data-en="Welcome to Acadex">مرحباً بكم في Acadex</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-ar="نحن متخصصون في تقديم الخدمات الطلابية المتكاملة للدراسة في تركيا. من الحصول على القبول الجامعي إلى التسجيل والاستقرار" data-en="We specialize in providing comprehensive student services for studying in Turkey. From university admission to registration and settlement">نحن متخصصون في تقديم الخدمات الطلابية المتكاملة للدراسة في تركيا. من الحصول على القبول الجامعي إلى التسجيل والاستقرار</p>
+            <a href="#services" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold inline-block" data-ar="ابدأ رحلتك التعليمية" data-en="Start Your Educational Journey">ابدأ رحلتك التعليمية</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20">
+    <section id="services" class="section-padding bg-light-beige">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">خدماتنا المتميزة</h2>
-            <p class="section-subtitle">نقدم خدمات شاملة لضمان رحلة تعليمية ناجحة</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-ar="خدماتنا المتميزة" data-en="Our Distinguished Services">خدماتنا المتميزة</h2>
+                <p class="text-gray-600 text-lg" data-ar="نقدم خدمات شاملة لضمان نجاح رحلتك التعليمية في تركيا" data-en="We provide comprehensive services to ensure the success of your educational journey in Turkey">نقدم خدمات شاملة لضمان نجاح رحلتك التعليمية في تركيا</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">القبول الجامعي</h3>
-                    <p class="text-gray-600">نضمن لك الحصول على قبول في أفضل الجامعات التركية حسب تخصصك وإمكانياتك</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-university text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="الحصول على القبول الجامعي" data-en="University Admission">الحصول على القبول الجامعي</h3>
+                    <p class="text-gray-600" data-ar="نساعدك في الحصول على القبول في أفضل الجامعات التركية" data-en="We help you get admission to the best Turkish universities">نساعدك في الحصول على القبول في أفضل الجامعات التركية</p>
                 </div>
                 
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-passport"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">الفيزا الطلابية</h3>
-                    <p class="text-gray-600">نساعدك في إجراءات الحصول على الفيزا الطلابية وجميع الأوراق المطلوبة</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-file-alt text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="ترجمة وتصديق الأوراق" data-en="Document Translation & Certification">ترجمة وتصديق الأوراق</h3>
+                    <p class="text-gray-600" data-ar="ترجمة وتصديق جميع الوثائق المطلوبة للتسجيل" data-en="Translation and certification of all required documents for registration">ترجمة وتصديق جميع الوثائق المطلوبة للتسجيل</p>
                 </div>
                 
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">السكن الطلابي</h3>
-                    <p class="text-gray-600">نوفر لك أفضل خيارات السكن الطلابي الآمن والمريح بأسعار مناسبة</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-passport text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="استخراج الفيزا الطلابية" data-en="Student Visa Processing">استخراج الفيزا الطلابية</h3>
+                    <p class="text-gray-600" data-ar="مساعدة كاملة في إجراءات استخراج الفيزا الطلابية" data-en="Complete assistance in student visa procedures">مساعدة كاملة في إجراءات استخراج الفيزا الطلابية</p>
                 </div>
                 
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">تعلم التركية</h3>
-                    <p class="text-gray-600">دورات تعليم اللغة التركية المكثفة مع أفضل المعلمين المتخصصين</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-home text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="تأمين السكن الطلابي" data-en="Student Housing">تأمين السكن الطلابي</h3>
+                    <p class="text-gray-600" data-ar="توفير خيارات سكن آمنة ومناسبة للطلاب" data-en="Providing safe and suitable housing options for students">توفير خيارات سكن آمنة ومناسبة للطلاب</p>
                 </div>
                 
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">الاستقبال من المطار</h3>
-                    <p class="text-gray-600">خدمة الاستقبال من المطار والمرافقة للسكن مجاناً لجميع طلابنا</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-shield-alt text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="التأمين الصحي" data-en="Health Insurance">التأمين الصحي</h3>
+                    <p class="text-gray-600" data-ar="تأمين صحي شامل للطلاب أثناء الدراسة" data-en="Comprehensive health insurance for students during study">تأمين صحي شامل للطلاب أثناء الدراسة</p>
                 </div>
                 
-                <div class="card p-6 text-center hover-scale">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">الدعم المستمر</h3>
-                    <p class="text-gray-600">فريق دعم متاح 24/7 لمساعدتك في جميع احتياجاتك أثناء الدراسة</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                    <i class="fas fa-plane text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3" data-ar="الاستقبال من المطار" data-en="Airport Reception">الاستقبال من المطار</h3>
+                    <p class="text-gray-600" data-ar="خدمة الاستقبال من المطار والمرافقة للسكن" data-en="Airport reception service and accommodation escort">خدمة الاستقبال من المطار والمرافقة للسكن</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Universities Section -->
-    <section id="universities" class="py-20 bg-beige">
+    <section id="universities" class="section-padding bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">الجامعات الشريكة</h2>
-            <p class="section-subtitle">أفضل الجامعات التركية الحكومية والخاصة</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-ar="الجامعات التركية المتميزة" data-en="Distinguished Turkish Universities">الجامعات التركية المتميزة</h2>
+                <p class="text-gray-600 text-lg" data-ar="اختر من بين أفضل الجامعات التركية الحكومية والخاصة" data-en="Choose from the best Turkish public and private universities">اختر من بين أفضل الجامعات التركية الحكومية والخاصة</p>
+            </div>
             
-            <!-- Public Universities -->
+            <!-- Government Universities -->
             <div class="mb-16">
-                <h3 class="text-2xl font-bold text-center mb-8 accent-orange">
-                    <i class="fas fa-university ml-2"></i>
-                    الجامعات الحكومية
-                </h3>
+                <h3 class="text-3xl font-bold text-center mb-8 text-primary" data-ar="الجامعات الحكومية" data-en="Public Universities">الجامعات الحكومية</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="university-card">
-                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/4_8681c6a360.jpg" alt="جامعة إسطنبول التقنية" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/4_8681c6a360.jpg" alt="جامعة إسطنبول التقنية">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة إسطنبول التقنية</h4>
-                            <p class="text-gray-600 mb-4">من أعرق الجامعات التقنية في تركيا، تأسست عام 1773</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">الترتيب العالمي: 783</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة إسطنبول التقنية" data-en="Istanbul Technical University">جامعة إسطنبول التقنية</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="الترتيب العالمي: 783" data-en="Global Ranking: 783">الترتيب العالمي: 783</p>
+                            <p class="text-gray-600" data-ar="جامعة رائدة في الهندسة والتكنولوجيا، تأسست عام 1773" data-en="Leading university in engineering and technology, established in 1773">جامعة رائدة في الهندسة والتكنولوجيا، تأسست عام 1773</p>
                         </div>
                     </div>
                     
-                    <div class="university-card">
-                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/2_e8c70fe51a.jpeg" alt="جامعة البوسفور" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/2_e8c70fe51a.jpeg" alt="جامعة البوسفور">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة البوسفور (بوغازيتشي)</h4>
-                            <p class="text-gray-600 mb-4">الجامعة الأولى في تركيا، معترف بها دولياً</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">الأولى محلياً</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة البوسفور (بوغازيتشي)" data-en="Bogazici University">جامعة البوسفور (بوغازيتچي)</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="الترتيب المحلي: الأولى" data-en="Local Ranking: #1">الترتيب المحلي: الأولى</p>
+                            <p class="text-gray-600" data-ar="أفضل جامعة في تركيا، تدرس باللغة الإنجليزية" data-en="Best university in Turkey, taught in English">أفضل جامعة في تركيا، تدرس باللغة الإنجليزية</p>
                         </div>
                     </div>
                     
-                    <div class="university-card">
-                        <img src="https://www.sic-edu.com/wp-content/uploads/2024/10/METU-1-min.jpg" alt="جامعة الشرق الأوسط التقنية" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://www.sic-edu.com/wp-content/uploads/2024/10/METU-1-min.jpg" alt="جامعة الشرق الأوسط التقنية">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة الشرق الأوسط التقنية</h4>
-                            <p class="text-gray-600 mb-4">جامعة رائدة في التكنولوجيا والهندسة</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">الترتيب العالمي: 383</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة الشرق الأوسط التقنية" data-en="Middle East Technical University">جامعة الشرق الأوسط التقنية</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="الترتيب العالمي: 383" data-en="Global Ranking: 383">الترتيب العالمي: 383</p>
+                            <p class="text-gray-600" data-ar="جامعة متميزة في الهندسة والعلوم، تقع في أنقرة" data-en="Distinguished university in engineering and sciences, located in Ankara">جامعة متميزة في الهندسة والعلوم، تقع في أنقرة</p>
                         </div>
                     </div>
                     
-                    <div class="university-card">
-                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/3_69fff10ad1.jpg" alt="جامعة أنقرة" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://imtiyaz-cms-media.s3.me-south-1.amazonaws.com/3_69fff10ad1.jpg" alt="جامعة أنقرة">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة أنقرة</h4>
-                            <p class="text-gray-600 mb-4">أعرق الجامعات التركية، تأسست عام 1946</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">الترتيب العالمي: 801</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة أنقرة" data-en="Ankara University">جامعة أنقرة</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="الترتيب العالمي: 801" data-en="Global Ranking: 801">الترتيب العالمي: 801</p>
+                            <p class="text-gray-600" data-ar="أعرق الجامعات التركية، تأسست عام 1946" data-en="Most prestigious Turkish university, established in 1946">أعرق الجامعات التركية، تأسست عام 1946</p>
                         </div>
                     </div>
                 </div>
@@ -361,275 +323,33 @@
             
             <!-- Private Universities -->
             <div>
-                <h3 class="text-2xl font-bold text-center mb-8 accent-orange">
-                    <i class="fas fa-building ml-2"></i>
-                    الجامعات الخاصة
-                </h3>
+                <h3 class="text-3xl font-bold text-center mb-8 text-primary" data-ar="الجامعات الخاصة" data-en="Private Universities">الجامعات الخاصة</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="university-card">
-                        <img src="https://turkeycampus.com/storage/uploads/Xp4P2ylsnTDpjrpw61paN3b1A3ufud61vLWx1L8x.webp" alt="جامعة بهتشه شهير" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://turkeycampus.com/storage/uploads/Xp4P2ylsnTDpjrpw61paN3b1A3ufud61vLWx1L8x.webp" alt="جامعة بهتشه شهير">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة بهتشه شهير</h4>
-                            <p class="text-gray-600 mb-4">أفضل الجامعات الخاصة في تركيا، حرم جامعي عالمي</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">الأولى خاصة</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة بهتشه شهير" data-en="Bahcesehir University">جامعة بهتشه شهير</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="الأولى في الجامعات الخاصة" data-en="Top Private University">الأولى في الجامعات الخاصة</p>
+                            <p class="text-gray-600" data-ar="جامعة عالمية بفروع في عدة دول، تركز على الابتكار" data-en="Global university with branches in several countries, focusing on innovation">جامعة عالمية بفروع في عدة دول، تركز على الابتكار</p>
                         </div>
                     </div>
                     
-                    <div class="university-card">
-                        <img src="https://ez-academy.org/wp-content/uploads/2023/01/919ff885f438c3857041965f5e1fde02sGZ_267DFN.jpg" alt="جامعة إسطنبول أيدن" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://ez-academy.org/wp-content/uploads/2023/01/919ff885f438c3857041965f5e1fde02sGZ_267DFN.jpg" alt="جامعة إسطنبول أيدن">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة إسطنبول أيدن</h4>
-                            <p class="text-gray-600 mb-4">متميزة في الهندسة والطب والإدارة</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">رسوم مخفضة</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة إسطنبول أيدن" data-en="Istanbul Aydin University">جامعة إسطنبول أيدن</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="متميزة في الهندسة والطب" data-en="Distinguished in Engineering and Medicine">متميزة في الهندسة والطب</p>
+                            <p class="text-gray-600" data-ar="جامعة حديثة مع مرافق متطورة وبرامج متنوعة" data-en="Modern university with advanced facilities and diverse programs">جامعة حديثة مع مرافق متطورة وبرامج متنوعة</p>
                         </div>
                     </div>
                     
-                    <div class="university-card">
-                        <img src="https://oranturkey.com/wp-content/uploads/2023/01/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D9%85%D9%8A%D8%AF%D9%8A%D8%A8%D9%88%D9%84.webp" alt="جامعة ميديبول" class="w-full h-48 object-cover">
+                    <div class="university-card card-hover">
+                        <img src="https://oranturkey.com/wp-content/uploads/2023/01/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D9%85%D9%8A%D8%AF%D9%8A%D8%A8%D9%88%D9%84.webp" alt="جامعة ميديبول">
                         <div class="p-6">
-                            <h4 class="text-xl font-bold text-gray-800 mb-2">جامعة إسطنبول ميديبول</h4>
-                            <p class="text-gray-600 mb-4">رائدة في العلوم الطبية والصحية</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">طب مميز</span>
-                                <button class="btn-primary">المزيد</button>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-2" data-ar="جامعة إسطنبول ميديبول" data-en="Istanbul Medipol University">جامعة إسطنبول ميديبول</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-ar="رائدة في العلوم الطبية" data-en="Leading in Medical Sciences">رائدة في العلوم الطبية</p>
+                            <p class="text-gray-600" data-ar="متخصصة في الطب والعلوم الصحية مع مستشفى جامعي" data-en="Specialized in medicine and health sciences with university hospital">متخصصة في الطب والعلوم الصحية مع مستشفى جامعي</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Form -->
-    <section id="registration" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="section-title">قدم طلبك الآن</h2>
-                <p class="section-subtitle">املأ النموذج وسنتواصل معك خلال 24 ساعة</p>
-                
-                <div class="card p-8">
-                    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">الاسم الكامل</label>
-                            <input type="text" class="form-input" placeholder="أدخل اسمك الكامل">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">البريد الإلكتروني</label>
-                            <input type="email" class="form-input" placeholder="example@email.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">رقم الهاتف</label>
-                            <input type="tel" class="form-input" placeholder="+90 xxx xxx xxxx">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">الجنسية</label>
-                            <select class="form-input">
-                                <option>اختر الجنسية</option>
-                                <option>السعودية</option>
-                                <option>مصر</option>
-                                <option>الأردن</option>
-                                <option>العراق</option>
-                                <option>سوريا</option>
-                                <option>لبنان</option>
-                                <option>المغرب</option>
-                                <option>الجزائر</option>
-                                <option>تونس</option>
-                                <option>فلسطين</option>
-                                <option>اليمن</option>
-                                <option>الكويت</option>
-                                <option>الإمارات</option>
-                                <option>قطر</option>
-                                <option>البحرين</option>
-                                <option>عمان</option>
-                                <option>أخرى</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">المؤهل الدراسي</label>
-                            <select class="form-input">
-                                <option>اختر المؤهل</option>
-                                <option>ثانوية عامة</option>
-                                <option>دبلوم</option>
-                                <option>بكالوريوس</option>
-                                <option>ماجستير</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">التخصص المرغوب</label>
-                            <select class="form-input">
-                                <option>اختر التخصص</option>
-                                <option>الطب البشري</option>
-                                <option>طب الأسنان</option>
-                                <option>الصيدلة</option>
-                                <option>الهندسة</option>
-                                <option>تكنولوجيا المعلومات</option>
-                                <option>إدارة الأعمال</option>
-                                <option>الحقوق</option>
-                                <option>الاقتصاد</option>
-                                <option>العلوم الإنسانية</option>
-                                <option>أخرى</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">نوع الجامعة المفضل</label>
-                            <select class="form-input">
-                                <option>اختر النوع</option>
-                                <option>جامعة حكومية</option>
-                                <option>جامعة خاصة</option>
-                                <option>لا يهم</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">لغة الدراسة المفضلة</label>
-                            <select class="form-input">
-                                <option>اختر اللغة</option>
-                                <option>التركية</option>
-                                <option>الإنجليزية</option>
-                                <option>لا يهم</option>
-                            </select>
-                        </div>
-                        
-                        <div class="md:col-span-2">
-                            <label class="block text-gray-700 font-bold mb-2">ملاحظات إضافية</label>
-                            <textarea class="form-input" rows="4" placeholder="أي معلومات إضافية تريد إضافتها..."></textarea>
-                        </div>
-                        
-                        <div class="md:col-span-2 text-center">
-                            <button type="submit" class="btn-primary text-lg px-12 py-4">
-                                <i class="fas fa-paper-plane ml-2"></i>
-                                إرسال الطلب
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-beige">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title">لماذا تختار Acadex؟</h2>
-            <p class="section-subtitle">نحن شريكك الموثوق في رحلتك التعليمية</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-accent-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-gray-800">خبرة أكثر من 10 سنوات</h3>
-                                <p class="text-gray-600">فريق من المختصين في التعليم العالي التركي</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-accent-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-gray-800">شراكات حصرية</h3>
-                                <p class="text-gray-600">اتفاقيات مع أفضل الجامعات التركية</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-accent-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-gray-800">دعم مجاني مدى الحياة</h3>
-                                <p class="text-gray-600">نبقى معك من التسجيل حتى التخرج</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-accent-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-gray-800">أسعار تنافسية</h3>
-                                <p class="text-gray-600">خدمات عالية الجودة بأسعار مناسبة</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card p-8 text-center">
-                    <i class="fas fa-award text-6xl accent-orange mb-4"></i>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">ضمان القبول</h3>
-                    <p class="text-gray-600 mb-6">نضمن لك الحصول على قبول جامعي أو نعيد أموالك كاملة</p>
-                    <button class="btn-primary">اعرف المزيد</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title">آراء طلابنا</h2>
-            <p class="section-subtitle">ماذا يقول طلابنا عن تجربتهم معنا</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&background=ff8c00&color=ffffff" alt="أحمد علي" class="w-12 h-12 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">أحمد علي</h4>
-                            <p class="text-gray-600 text-sm">طالب طب - جامعة إسطنبول</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">"فريق Acadex ساعدني في كل خطوة من الحصول على القبول حتى الوصول لتركيا. خدمة ممتازة وأسعار مناسبة."</p>
-                    <div class="flex text-yellow-500 mt-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Fatima+Hassan&background=ff8c00&color=ffffff" alt="فاطمة حسن" class="w-12 h-12 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">فاطمة حسن</h4>
-                            <p class="text-gray-600 text-sm">طالبة هندسة - جامعة بهتشه شهير</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">"الدعم المستمر والمساعدة في جميع الإجراءات جعل تجربة الدراسة في تركيا سهلة وممتعة. أنصح بشدة!"</p>
-                    <div class="flex text-yellow-500 mt-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Omar+Khalil&background=ff8c00&color=ffffff" alt="عمر خليل" class="w-12 h-12 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">عمر خليل</h4>
-                            <p class="text-gray-600 text-sm">طالب إدارة - جامعة إسطنبول أيدن</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">"تجربة رائعة مع فريق محترف. حصلت على قبول في أفضل الجامعات وبخصومات ممتازة. شكراً Acadex!"</p>
-                    <div class="flex text-yellow-500 mt-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
@@ -637,95 +357,115 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-beige">
+    <section id="contact" class="section-padding bg-light-beige">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">تواصل معنا</h2>
-            <p class="section-subtitle">نحن هنا لمساعدتك في تحقيق حلمك التعليمي</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+                <p class="text-gray-600 text-lg" data-ar="نحن هنا لمساعدتك في تحقيق أحلامك التعليمية" data-en="We are here to help you achieve your educational dreams">نحن هنا لمساعدتك في تحقيق أحلامك التعليمية</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="card p-8">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">معلومات الاتصال</h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-2xl accent-orange ml-4"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <div class="contact-info">
+                        <h3 class="text-2xl font-bold mb-6 text-primary" data-ar="معلومات التواصل" data-en="Contact Information">معلومات التواصل</h3>
+                        
+                        <a href="tel:+962799891510" class="contact-item">
+                            <i class="fas fa-phone"></i>
                             <div>
-                                <h4 class="font-bold text-gray-800">العنوان</h4>
-                                <p class="text-gray-600">إسطنبول، تركيا - شيشلي</p>
+                                <h4 class="font-semibold" data-ar="الهاتف" data-en="Phone">الهاتف</h4>
+                                <p>+962799891510</p>
+                            </div>
+                        </a>
+                        
+                        <a href="/cdn-cgi/l/email-protection#7d1c1e1c191805181908453d1a101c1411531e1210" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 class="font-semibold" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h4>
+                                <p><span class="__cf_email__" data-cfemail="503133313435283534256810373d31393c7e333f3d">[email&#160;protected]</span></p>
+                            </div>
+                        </a>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 class="font-semibold" data-ar="الموقع" data-en="Location">الموقع</h4>
+                                <p data-ar="الأردن - عمان" data-en="Jordan - Amman">الأردن - عمان</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-2xl accent-orange ml-4"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-800">الهاتف</h4>
-                                <p class="text-gray-600">+90 xxx xxx xxxx</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-2xl accent-orange ml-4"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-800">البريد الإلكتروني</h4>
-                                <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e210002000504194f020e0c">[email&#160;protected]</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <i class="fas fa-clock text-2xl accent-orange ml-4"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-800">ساعات العمل</h4>
-                                <p class="text-gray-600">الأحد - الخميس: 9:00 - 18:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h4 class="font-bold text-gray-800 mb-4">تابعنا على وسائل التواصل</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-accent-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="bg-accent-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="bg-accent-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="bg-accent-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+                        <a href="https://wa.me/962799891510?text=مرحبا، أريد الاستفسار عن خدمات Acadex" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            <span data-ar="تواصل عبر الواتساب" data-en="Contact via WhatsApp">تواصل عبر الواتساب</span>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="card p-8">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">أرسل لنا رسالة</h3>
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-primary" data-ar="أرسل استفسارك" data-en="Send Your Inquiry">أرسل استفسارك</h3>
                     
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">الاسم</label>
-                            <input type="text" class="form-input" placeholder="اسمك الكامل">
+                    <form action="https://formspree.io/f/mblyaljv" method="POST" class="space-y-4">
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                            <input type="text" name="name" class="form-control" required 
+                                   placeholder="ادخل اسمك الكامل" data-ar-placeholder="ادخل اسمك الكامل" data-en-placeholder="Enter your full name">
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">البريد الإلكتروني</label>
-                            <input type="email" class="form-input" placeholder="بريدك الإلكتروني">
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <input type="email" name="email" class="form-control" required 
+                                   placeholder="example@email.com" data-ar-placeholder="example@email.com" data-en-placeholder="example@email.com">
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">الموضوع</label>
-                            <input type="text" class="form-input" placeholder="موضوع الرسالة">
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <input type="tel" name="phone" class="form-control" required 
+                                   placeholder="+962799891510" data-ar-placeholder="+962799891510" data-en-placeholder="+962799891510">
                         </div>
                         
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">الرسالة</label>
-                            <textarea class="form-input" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="نوع الجامعة" data-en="University Type">نوع الجامعة</label>
+                            <select name="university_type" class="form-control" required>
+                                <option value="" data-ar="اختر نوع الجامعة" data-en="Select University Type">اختر نوع الجامعة</option>
+                                <option value="government" data-ar="جامعة حكومية" data-en="Public University">جامعة حكومية</option>
+                                <option value="private" data-ar="جامعة خاصة" data-en="Private University">جامعة خاصة</option>
+                                <option value="both" data-ar="كلا النوعين" data-en="Both Types">كلا النوعين</option>
+                            </select>
                         </div>
                         
-                        <button type="submit" class="btn-primary w-full">
-                            <i class="fas fa-paper-plane ml-2"></i>
-                            إرسال الرسالة
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="التخصص المرغوب" data-en="Desired Major">التخصص المرغوب</label>
+                            <select name="major" class="form-control" required>
+                                <option value="" data-ar="اختر التخصص" data-en="Select Major">اختر التخصص</option>
+                                <option value="medicine" data-ar="الطب" data-en="Medicine">الطب</option>
+                                <option value="engineering" data-ar="الهندسة" data-en="Engineering">الهندسة</option>
+                                <option value="business" data-ar="إدارة الأعمال" data-en="Business Administration">إدارة الأعمال</option>
+                                <option value="law" data-ar="القانون" data-en="Law">القانون</option>
+                                <option value="arts" data-ar="الفنون" data-en="Arts">الفنون</option>
+                                <option value="other" data-ar="أخرى" data-en="Other">أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="المستوى التعليمي" data-en="Education Level">المستوى التعليمي</label>
+                            <select name="education_level" class="form-control" required>
+                                <option value="" data-ar="اختر المستوى" data-en="Select Level">اختر المستوى</option>
+                                <option value="bachelor" data-ar="البكالوريوس" data-en="Bachelor's">البكالوريوس</option>
+                                <option value="master" data-ar="الماجستير" data-en="Master's">الماجستير</option>
+                                <option value="phd" data-ar="الدكتوراه" data-en="PhD">الدكتوراه</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="block text-gray-700 font-semibold mb-2" data-ar="رسالتك" data-en="Your Message">رسالتك</label>
+                            <textarea name="message" rows="4" class="form-control" required 
+                                      placeholder="اكتب رسالتك هنا..." data-ar-placeholder="اكتب رسالتك هنا..." data-en-placeholder="Write your message here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span data-ar="إرسال الاستفسار" data-en="Send Inquiry">إرسال الاستفسار</span>
                         </button>
                     </form>
                 </div>
@@ -736,52 +476,84 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-graduation-cap text-2xl accent-orange"></i>
-                        <h3 class="text-xl font-bold">Acadex</h3>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-graduation-cap text-primary text-3xl ml-3"></i>
+                        <h3 class="text-2xl font-bold">Acadex</h3>
                     </div>
-                    <p class="text-gray-400">شريكك الموثوق في رحلتك التعليمية إلى تركيا. نحن نقدم خدمات شاملة لضمان نجاحك الأكاديمي.</p>
+                    <p class="text-gray-400" data-ar="نحن متخصصون في تقديم الخدمات الطلابية المتكاملة للدراسة في تركيا" data-en="We specialize in providing comprehensive student services for studying in Turkey">نحن متخصصون في تقديم الخدمات الطلابية المتكاملة للدراسة في تركيا</p>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-4">خدماتنا</h4>
+                    <h4 class="text-xl font-bold mb-4" data-ar="الخدمات" data-en="Services">الخدمات</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">القبول الجامعي</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">الفيزا الطلابية</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">السكن الطلابي</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">تعلم التركية</a></li>
+                        <li data-ar="التسجيل الجامعي" data-en="University Registration">التسجيل الجامعي</li>
+                        <li data-ar="الفيزا الطلابية" data-en="Student Visa">الفيزا الطلابية</li>
+                        <li data-ar="السكن الطلابي" data-en="Student Housing">السكن الطلابي</li>
+                        <li data-ar="التأمين الصحي" data-en="Health Insurance">التأمين الصحي</li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-4">الجامعات</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">الجامعات الحكومية</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">الجامعات الخاصة</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">التخصصات الطبية</a></li>
-                        <li><a href="#" class="hover:text-orange-500 transition-colors">التخصصات الهندسية</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-4">تواصل معنا</h4>
+                    <h4 class="text-xl font-bold mb-4" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h4>
                     <div class="space-y-2 text-gray-400">
-                        <p><i class="fas fa-phone ml-2"></i> +90 xxx xxx xxxx</p>
-                        <p><i class="fas fa-envelope ml-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3babdb5bc93b2b0b2b7b6abfdb0bcbe">[email&#160;protected]</a></p>
-                        <p><i class="fas fa-map-marker-alt ml-2"></i> إسطنبول، تركيا</p>
+                        <p><i class="fas fa-phone ml-2"></i> +962799891510</p>
+                        <p><i class="fas fa-envelope ml-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e1808280858499848594d9a1868c80888dcf828e8c">[email&#160;protected]</a></p>
+                        <p><i class="fas fa-map-marker-alt ml-2"></i> <span data-ar="الأردن - عمان" data-en="Jordan - Amman">الأردن - عمان</span></p>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Acadex. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2024 Acadex. <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved">جميع الحقوق محفوظة</span></p>
             </div>
         </div>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Language switching functionality
+        let currentLanguage = 'ar';
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update direction
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update button states
+            document.getElementById('ar-btn').classList.toggle('active', lang === 'ar');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            
+            // Update all translatable elements
+            const elements = document.querySelectorAll('[data-ar][data-en]');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update placeholders
+            const placeholderElements = document.querySelectorAll('[data-ar-placeholder][data-en-placeholder]');
+            placeholderElements.forEach(element => {
+                element.setAttribute('placeholder', element.getAttribute(`data-${lang}-placeholder`));
+            });
+            
+            // Update select options
+            const selectOptions = document.querySelectorAll('option[data-ar][data-en]');
+            selectOptions.forEach(option => {
+                option.textContent = option.getAttribute(`data-${lang}`);
+            });
+            
+            // Save language preference
+            localStorage.setItem('acadex_language', lang);
+        }
+        
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('acadex_language') || 'ar';
+            switchLanguage(savedLanguage);
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -795,97 +567,42 @@
                 }
             });
         });
-
-        // Form submission handler
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
-                form.reset();
-            });
-        });
-
-        // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.card, .university-card, .testimonial-card');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        // Initialize animation styles
-        document.querySelectorAll('.card, .university-card, .testimonial-card').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'all 0.6s ease';
-        });
-
-        // Add scroll event listener
-        window.addEventListener('scroll', animateOnScroll);
         
-        // Initial animation check
-        animateOnScroll();
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + 
+                              (currentLanguage === 'ar' ? 'جاري الإرسال...' : 'Sending...');
+            button.disabled = true;
+            
+            // Reset after 3 seconds (form will be submitted)
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 3000);
+        });
         
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stats-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.textContent);
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
-                    }
-                };
-                
-                updateCounter();
-            });
-        }
-
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats-number');
-        if (statsSection) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-            observer.observe(statsSection);
-        }
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95a166c0f93e8abf","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95a18a7a781b8ac6","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDtYPP03Rwan1avzcTTQB%2FAE0QO3RER%2Bbx7g7Jow%2BEj8ZBcfNc66mZgj3q7BcYk3BRP0pEZpuGmCD7SHO%2FtcQsroXd%2FxePrlDiwDPYLUagFe9ex4cIqJCSH%2FudN2QV%2Fq2OwZ920rhUbmZEJD1pwULF8%2FPufm7VXr%2FANoU7Dkv6Qthmj8LfQxI6UyQ0LZOrIpwt3jmJ6X8SmxhJ8pv9R7ID6lcpqoZaTz4efnDlsp7l6cRXoMi5C3LePzKrRwC6M1dmHUy6rAvFfs8tFO9EFIH7gxd4h0W8Le9%2FGdVlBt%2BYeax4mX3aLvPL4X5lDmMQ22Jf443xvuUtiseEyzCFZM%2BFkaiJ6CALoWodrWUTd%2F8LR8QIH386qOKCNbrzyUEujIcS%2BZnU5kpoqVaD3CDe0im1qFXmymbC6eNwIyqOlSiW%2BNVsOHFuFA5evg8a5fpeWv%2BMkisiH4IBX1dfWe4jvks7gWod9RV0VEO2k9KjnKPi%2FvvgnoS56ll3JoXO0zXt%2F0tbQ%3D%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDoaGJ0tJ5ygjSgwcI%2B4ikYmpP%2FoqIbkUYRLMXD5jYST1w%2B4YPpib3unSVi0CVKg5UPnSudor0v6a4LFiVF5UkbJe18JROJbOARGzFCelPZkKyo%2B6IfC1AEVkU2hl7yLDRWFz3jCglLjU2DnpiFzBf0Fw3RpxsJDdjLmqKTXa7rNKAWkjrHFUgO7tY%2B%2FNMjxZ2sBF0Drjgq31clkFOjeJZSamorRfxRLQ%2BpW6PM1u9xKPzhwxXXAWCFIg6uIqVVH2hEL6NR%2F258Nl%2FLGotbQW7V1E9lw%2FRxCsDwBB6fV3F2c2GxrrajnmLcWHB3FTO%2BsHjY05y%2Ba6JIhAYoIl6OAamDP0eu8vmfI2H3SsKNWxIonZS3Hj44hV%2F09KTyh240Kcwil8gEyFOaOAou0TVK%2FZ%2FsyRoX%2B4%2B%2BnyWSUvIlGQJ1SOH6IbbyBUbMKYTUaT6N%2FLCCsDGle58yuDT%2FtdiN9BvxM%2B3rZSRxVGlO%2Bf5IybbWTBEv0gUrZOr5oGFFsC6TjYEAFt1k4pTd95BaY6w4QbEUQ%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDtYPP03Rwan1avzcTTQB/AE0QO3RER+bx7g7Jow+Ej8ZBcfNc66mZgj3q7BcYk3BRP0pEZpuGmCD7SHO/tcQsroXd/xePrlDiwDPYLUagFe9ex4cIqJCSH/udN2QV/q2OwZ920rhUbmZEJD1pwULF8/Pufm7VXr/ANoU7Dkv6Qthmj8LfQxI6UyQ0LZOrIpwt3jmJ6X8SmxhJ8pv9R7ID6lcpqoZaTz4efnDlsp7l6cRXoMi5C3LePzKrRwC6M1dmHUy6rAvFfs8tFO9EFIH7gxd4h0W8Le9/GdVlBt+Yeax4mX3aLvPL4X5lDmMQ22Jf443xvuUtiseEyzCFZM+FkaiJ6CALoWodrWUTd/8LR8QIH386qOKCNbrzyUEujIcS+ZnU5kpoqVaD3CDe0im1qFXmymbC6eNwIyqOlSiW+NVsOHFuFA5evg8a5fpeWv+MkisiH4IBX1dfWe4jvks7gWod9RV0VEO2k9KjnKPi/vvgnoS56ll3JoXO0zXt/0tbQ==";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDoaGJ0tJ5ygjSgwcI+4ikYmpP/oqIbkUYRLMXD5jYST1w+4YPpib3unSVi0CVKg5UPnSudor0v6a4LFiVF5UkbJe18JROJbOARGzFCelPZkKyo+6IfC1AEVkU2hl7yLDRWFz3jCglLjU2DnpiFzBf0Fw3RpxsJDdjLmqKTXa7rNKAWkjrHFUgO7tY+/NMjxZ2sBF0Drjgq31clkFOjeJZSamorRfxRLQ+pW6PM1u9xKPzhwxXXAWCFIg6uIqVVH2hEL6NR/258Nl/LGotbQW7V1E9lw/RxCsDwBB6fV3F2c2GxrrajnmLcWHB3FTO+sHjY05y+a6JIhAYoIl6OAamDP0eu8vmfI2H3SsKNWxIonZS3Hj44hV/09KTyh240Kcwil8gEyFOaOAou0TVK/Z/syRoX+4++nyWSUvIlGQJ1SOH6IbbyBUbMKYTUaT6N/LCCsDGle58yuDT/tdiN9BvxM+3rZSRxVGlO+f5IybbWTBEv0gUrZOr5oGFFsC6TjYEAFt1k4pTd95BaY6w4QbEUQ=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
